@@ -23,3 +23,12 @@ when 'rhel'
 when 'debian', 'mac_os_x'
   package 'imagemagick'
 end
+
+
+template '/etc/ImageMagick/policy.xml' do
+  source 'policy.xml.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+end
