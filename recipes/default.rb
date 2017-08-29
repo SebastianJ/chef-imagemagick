@@ -25,7 +25,13 @@ when 'debian', 'mac_os_x'
 end
 
 
-template '/etc/ImageMagick/policy.xml' do
+if node.platform_version =~ /^16.04/
+  magick_path = "/etc/ImageMagick-6"
+else
+  magick_path = "/etc/ImageMagick"
+end
+
+template "#{magick_path}/policy.xml" do
   source 'policy.xml.erb'
   owner 'root'
   group 'root'
