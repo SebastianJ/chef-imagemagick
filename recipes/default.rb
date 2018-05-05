@@ -25,7 +25,7 @@ when 'debian', 'mac_os_x'
 end
 
 
-if node.platform_version =~ /^16.04/
+if node.platform_version =~ /^16.04/ || node.platform_version =~ /^18.04/
   magick_path = "/etc/ImageMagick-6"
 else
   magick_path = "/etc/ImageMagick"
